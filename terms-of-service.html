@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Phlox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --white:   #ffffff;
+      --bloom:   #c8f55a;
+      --bloom2:  #a8e040;
+      --ink:     #1a1a1a;
+      --muted:   #6b6b7b;
+      --rule:    #e8e8ee;
+      --surface: #f7f7fa;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-logo span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--bloom);
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover { color: var(--ink); }
+
+    .hero {
+      padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem) 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--bloom);
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--bloom2);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .hero-meta strong { color: var(--ink); font-weight: 500; }
+
+    .layout {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem) 6rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 80px;
+    }
+
+    .toc-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .toc ul { list-style: none; }
+    .toc li + li { margin-top: 0.5rem; }
+
+    .toc a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: block;
+      padding: 4px 0 4px 12px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      line-height: 1.4;
+    }
+
+    .toc a:hover,
+    .toc a.active {
+      color: var(--ink);
+      border-left-color: var(--bloom);
+    }
+
+    .content section {
+      padding-top: 3rem;
+      border-top: 1px solid var(--rule);
+      margin-bottom: 0;
+    }
+
+    .content section:first-child { border-top: none; padding-top: 0; }
+
+    .section-num {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bloom2);
+      margin-bottom: 0.5rem;
+    }
+
+    .content h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .content p {
+      font-size: 0.95rem;
+      color: #2c2c3a;
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+
+    .content ul {
+      margin: 0.75rem 0 1rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .content ul li {
+      font-size: 0.95rem;
+      color: #2c2c3a;
+      padding: 0.35rem 0 0.35rem 1.5rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--bloom);
+    }
+
+    .highlight-box {
+      background: var(--surface);
+      border-left: 3px solid var(--bloom);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .highlight-box p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+    .highlight-box strong { color: var(--ink); }
+
+    .warning-box {
+      background: #fff8f0;
+      border-left: 3px solid #f59e0b;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .warning-box p { margin: 0; font-size: 0.9rem; color: #92400e; }
+
+    a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--bloom2); }
+
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2.5rem clamp(1.5rem, 5vw, 4rem);
+      font-size: 0.82rem;
+    }
+
+    footer .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--bloom); }
+
+    @media (max-width: 680px) {
+      .layout { grid-template-columns: 1fr; gap: 0; }
+      .toc {
+        position: static;
+        background: var(--surface);
+        padding: 1.25rem 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://getphlox.com" class="nav-logo">
+      Phlox <span></span>
+    </a>
+    <a href="https://getphlox.com" class="nav-link">← Back to site</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-eyebrow">Legal</div>
+    <h1>Terms of <em>Service</em></h1>
+    <div class="hero-meta">
+      <div><strong>Effective date</strong><br>July 18, 2026</div>
+      <div><strong>Last updated</strong><br>July 18, 2026</div>
+      <div><strong>Applies to</strong><br>getphlox.com</div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="toc">
+      <div class="toc-label">On this page</div>
+      <ul>
+        <li><a href="#acceptance">Acceptance</a></li>
+        <li><a href="#platform">The platform</a></li>
+        <li><a href="#accounts">Accounts</a></li>
+        <li><a href="#brands">Brand terms</a></li>
+        <li><a href="#creators">Creator terms</a></li>
+        <li><a href="#payments">Payments</a></li>
+        <li><a href="#content">Content</a></li>
+        <li><a href="#ai">AI agents</a></li>
+        <li><a href="#prohibited">Prohibited use</a></li>
+        <li><a href="#ip">Intellectual property</a></li>
+        <li><a href="#liability">Liability</a></li>
+        <li><a href="#termination">Termination</a></li>
+        <li><a href="#disputes">Disputes</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+
+      <section id="acceptance">
+        <div class="section-num">01</div>
+        <h2>Acceptance of terms</h2>
+        <p>By creating an account on Phlox or using any part of our platform at getphlox.com, you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use our platform.</p>
+        <p>These terms apply to all users — Brands, Creators, and Administrators. References to "you" apply to the type of account you hold.</p>
+        <div class="highlight-box">
+          <p><strong>You must be at least 18 years old to use Phlox.</strong> By accepting these terms, you confirm that you meet this requirement.</p>
+        </div>
+      </section>
+
+      <section id="platform">
+        <div class="section-num">02</div>
+        <h2>The platform</h2>
+        <p>Phlox is an AI-native influencer marketing platform that connects Nigerian brands with content creators. Our platform provides:</p>
+        <ul>
+          <li>AI-powered creator sourcing and matching</li>
+          <li>Campaign management tools for brands</li>
+          <li>Contract generation and management</li>
+          <li>Content submission and review workflows</li>
+          <li>Affiliate programme management</li>
+          <li>Product seeding and gifting coordination</li>
+          <li>Creator payments and brand billing via Flutterwave and Paystack</li>
+        </ul>
+        <p>Phlox is a platform — we facilitate connections between brands and creators but are not a party to the agreements between them unless explicitly stated.</p>
+      </section>
+
+      <section id="accounts">
+        <div class="section-num">03</div>
+        <h2>Accounts</h2>
+        <p>To use Phlox you must create an account as either a Brand or a Creator. You agree to:</p>
+        <ul>
+          <li>Provide accurate, truthful information during registration</li>
+          <li>Keep your account credentials secure and not share them</li>
+          <li>Notify us immediately at <a href="mailto:security@getphlox.com">security@getphlox.com</a> if you suspect unauthorised access</li>
+          <li>Be responsible for all activity that occurs under your account</li>
+        </ul>
+        <p>We reserve the right to suspend or terminate accounts that violate these terms, provide false information, or engage in prohibited activities.</p>
+        <p>You may not create more than one account per role without our written permission.</p>
+      </section>
+
+      <section id="brands">
+        <div class="section-num">04</div>
+        <h2>Brand terms</h2>
+        <p>As a Brand on Phlox, you agree to:</p>
+        <ul>
+          <li>Deposit the full campaign budget before sourcing begins — no credit is extended</li>
+          <li>Provide accurate campaign briefs — misleading briefs that waste creator time may result in account suspension</li>
+          <li>Review and approve or reject content submissions within 7 days of receipt</li>
+          <li>Pay the 15% platform service fee on all creator budgets</li>
+          <li>Not contact creators sourced through Phlox directly outside of the platform to circumvent our fees</li>
+          <li>Comply with Nigerian advertising standards and applicable laws</li>
+          <li>Not use whitelisted creator content beyond the scope agreed in the content rights agreement</li>
+        </ul>
+        <p>Brands on the 14-day free trial are limited to 1 active campaign and 10 creators per campaign.</p>
+      </section>
+
+      <section id="creators">
+        <div class="section-num">05</div>
+        <h2>Creator terms</h2>
+        <p>As a Creator on Phlox, you agree to:</p>
+        <ul>
+          <li>Provide accurate social media statistics — falsified stats will result in immediate account termination</li>
+          <li>Deliver content that meets the campaign brief you agreed to</li>
+          <li>Submit content within the agreed deadline</li>
+          <li>Disclose sponsored content in accordance with applicable advertising disclosure laws</li>
+          <li>Not accept payment directly from brands sourced through Phlox to circumvent platform fees</li>
+          <li>Provide accurate bank account details for payouts — Phlox is not responsible for failed payouts due to incorrect details</li>
+          <li>Grant the content rights specified in each campaign contract upon approval</li>
+        </ul>
+        <p>Creator accounts are subject to approval. We reserve the right to reject or remove creator profiles that do not meet our quality standards.</p>
+      </section>
+
+      <section id="payments">
+        <div class="section-num">06</div>
+        <h2>Payments</h2>
+        <p><strong>Brand payments:</strong> All campaign budgets must be deposited in full before sourcing begins. The 15% platform service fee is deducted from the campaign budget on activation. Phlox uses Flutterwave to process brand deposits.</p>
+        <p><strong>Creator payouts:</strong> Creators are paid via Flutterwave bank transfer to their registered Nigerian bank account after their content is approved and goes live. Payouts are typically processed within 1-3 business days of approval.</p>
+        <p><strong>Refunds:</strong> If a campaign is cancelled before sourcing begins, the full budget is refunded to the brand wallet. If sourcing has already begun, the platform service fee is non-refundable. Unused creator fees are returned to the brand wallet.</p>
+        <p><strong>Subscription fees:</strong> Monthly subscription charges are non-refundable. Downgrading a plan takes effect at the end of the current billing period.</p>
+        <div class="warning-box">
+          <p>Phlox is not responsible for delays in payouts caused by Flutterwave, bank processing times, or incorrect bank details provided by creators.</p>
+        </div>
+      </section>
+
+      <section id="content">
+        <div class="section-num">07</div>
+        <h2>Content</h2>
+        <p>As a Creator, you retain ownership of content you create. By submitting content through Phlox and accepting a campaign contract, you grant the Brand a licence to use that content as specified in the contract — which may include organic use, paid advertising (whitelisting), or both.</p>
+        <p>You must not submit content that:</p>
+        <ul>
+          <li>Infringes on any third party's intellectual property rights</li>
+          <li>Contains false or misleading claims about the brand or product</li>
+          <li>Violates any applicable laws including Nigerian advertising regulations</li>
+          <li>Is obscene, defamatory, or harmful</li>
+          <li>Includes third-party music, images, or footage without appropriate licences</li>
+        </ul>
+        <p>Phlox reserves the right to remove content that violates these terms without notice.</p>
+      </section>
+
+      <section id="ai">
+        <div class="section-num">08</div>
+        <h2>AI agents</h2>
+        <p>Phlox uses AI agents powered by Anthropic's Claude to automate parts of the influencer marketing workflow including creator sourcing, outreach message generation, content review, and performance analysis.</p>
+        <p>By using Phlox, you acknowledge and accept that:</p>
+        <ul>
+          <li>AI-generated outreach messages are sent on behalf of Phlox, not the brand directly</li>
+          <li>AI content review recommendations are advisory — brands make the final approval decision</li>
+          <li>AI sourcing shortlists are based on available data and may not be exhaustive</li>
+          <li>Campaign briefs and creator data are processed by Anthropic's API under their privacy policy</li>
+        </ul>
+        <p>Phlox does not guarantee specific outcomes from AI-assisted matching or campaigns.</p>
+      </section>
+
+      <section id="prohibited">
+        <div class="section-num">09</div>
+        <h2>Prohibited use</h2>
+        <p>You may not use Phlox to:</p>
+        <ul>
+          <li>Engage in fraud, misrepresentation, or deceptive practices</li>
+          <li>Create fake creator accounts or inflate social media statistics</li>
+          <li>Circumvent platform fees by taking brand-creator relationships off-platform</li>
+          <li>Scrape, copy, or extract data from the platform without permission</li>
+          <li>Attempt to reverse engineer, hack, or disrupt the platform</li>
+          <li>Promote illegal products, services, or activities</li>
+          <li>Harass, threaten, or abuse other users</li>
+          <li>Violate any applicable Nigerian or international laws</li>
+        </ul>
+        <p>Violations may result in immediate account termination and, where applicable, legal action.</p>
+      </section>
+
+      <section id="ip">
+        <div class="section-num">10</div>
+        <h2>Intellectual property</h2>
+        <p>Phlox, its logo, platform design, software, and AI systems are owned by Phlox and protected by applicable intellectual property laws. You may not copy, reproduce, or create derivative works from any part of our platform without written permission.</p>
+        <p>Creator content remains the property of the creator until explicitly transferred under a campaign contract. Brand materials provided for campaigns remain the property of the brand.</p>
+      </section>
+
+      <section id="liability">
+        <div class="section-num">11</div>
+        <h2>Limitation of liability</h2>
+        <p>Phlox provides the platform on an "as is" basis. To the maximum extent permitted by law, we are not liable for:</p>
+        <ul>
+          <li>The quality or performance of creator content</li>
+          <li>Campaign outcomes — results are not guaranteed</li>
+          <li>Disputes between brands and creators</li>
+          <li>Third-party payment processing failures</li>
+          <li>Loss of data due to circumstances beyond our reasonable control</li>
+          <li>Decisions made based on AI agent recommendations</li>
+        </ul>
+        <p>Our maximum liability to you in any circumstance is limited to the amount you paid to Phlox in the 3 months preceding the claim.</p>
+      </section>
+
+      <section id="termination">
+        <div class="section-num">12</div>
+        <h2>Termination</h2>
+        <p>You may delete your account at any time from your account settings. Active campaigns must be resolved before deletion.</p>
+        <p>We may terminate or suspend your account immediately, without notice, if you:</p>
+        <ul>
+          <li>Violate these terms</li>
+          <li>Provide false information</li>
+          <li>Engage in fraudulent activity</li>
+          <li>Fail to pay amounts owed</li>
+        </ul>
+        <p>On termination, your right to use the platform ceases immediately. We will process any outstanding creator payouts and brand refunds in accordance with our payment terms.</p>
+      </section>
+
+      <section id="disputes">
+        <div class="section-num">13</div>
+        <h2>Disputes</h2>
+        <p>These terms are governed by the laws of the Federal Republic of Nigeria. Any disputes arising from your use of Phlox will be subject to the exclusive jurisdiction of Nigerian courts.</p>
+        <p>Before initiating legal proceedings, you agree to contact us at <a href="mailto:legal@getphlox.com">legal@getphlox.com</a> to attempt resolution in good faith.</p>
+        <p>For disputes between brands and creators facilitated by Phlox, we will make reasonable efforts to mediate but are not obligated to resolve disputes between third parties.</p>
+      </section>
+
+      <section id="changes">
+        <div class="section-num">14</div>
+        <h2>Changes to these terms</h2>
+        <p>We may update these terms as our platform evolves. We will notify you of material changes by email at least 14 days before they take effect. Continued use of Phlox after that date constitutes acceptance of the updated terms.</p>
+        <p>If you do not agree to updated terms, you must stop using the platform and delete your account before the changes take effect.</p>
+      </section>
+
+      <section id="contact">
+        <div class="section-num">15</div>
+        <h2>Contact</h2>
+        <p>For questions about these terms:</p>
+        <ul>
+          <li>Email: <a href="mailto:legal@getphlox.com">legal@getphlox.com</a></li>
+          <li>Website: <a href="https://getphlox.com">getphlox.com</a></li>
+        </ul>
+        <div class="highlight-box">
+          <p>Phlox is operated from Lagos, Nigeria. These terms constitute the entire agreement between you and Phlox regarding your use of the platform.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-logo">Phlox</div>
+    <div>© 2026 Phlox. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
+      <a href="mailto:hello@getphlox.com">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('.content section[id]');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
